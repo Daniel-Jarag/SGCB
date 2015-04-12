@@ -4,7 +4,7 @@ $cn = new Conexion();
 $id_factura = $_GET['id_factura'];
 $cn->Conectar();
 $return_arr = array();
-$res = $cn->Consulta("SELECT CODIGOPRODUCTO,IP_CANTIDAD,NUMEROFACTURA FROM  INGRESO_PRODUCTO WHERE NUMEROFACTURA='$id_factura'");
+$res = $cn->Consulta("SELECT CODIGOPRODUCTO,IP_CANTIDAD,NUMEROFACTURA FROM  ingreso_producto WHERE NUMEROFACTURA='$id_factura'");
 
 while ($row = $cn->getRespuesta($res)){
     $array['CODIGOPRODUCTO'] = $row['CODIGOPRODUCTO'];

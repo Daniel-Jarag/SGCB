@@ -3,7 +3,7 @@ include ("../include/conectar.php");
 ?> 
 
 <?
-  $sql="Select count(CODIGOPRODUCTO)+1 AS ID from HERRAMIENTA";
+  $sql="Select count(CODIGOPRODUCTO)+1 AS ID from herramienta";
   conectar();
   $rs=mysql_query($sql,$conexion);	
 ?>
@@ -51,7 +51,7 @@ include ("../include/conectar.php");
      <div class="navbar-inner">
        <div class="container-fluid"> <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="arrow"></span> </a>
            <div class="top-nav">
-             <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+             <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rs2=mysql_query($sql,$conexion);	
 	while ($ros=mysql_fetch_array($rs2)){
@@ -69,7 +69,7 @@ include ("../include/conectar.php");
                      </li>
                      <?
   
-	$sql111 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+	$sql111 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rsss=mysql_query($sql111,$conexion);		
 	while ($rowss=mysql_fetch_array($rsss)){

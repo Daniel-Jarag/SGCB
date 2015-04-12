@@ -6,7 +6,7 @@ $CODIGO = $_POST['CODIGO'];
 $cn->Conectar();
 $return_arr = array();
 
-$res = $cn->Consulta("UPDATE  CARGO SET C_ESTADO=0 WHERE CODIGOCARGO='$CODIGO'");
+$res = $cn->Consulta("UPDATE  cargo SET C_ESTADO=0 WHERE CODIGOCARGO='$CODIGO'");
 
 
 $cn->Desconectar();

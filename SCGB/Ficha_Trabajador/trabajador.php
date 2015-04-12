@@ -11,13 +11,13 @@ $cn = new Conexion();
 $cn2 = new Conexion();
 $cn3 = new Conexion();
 $cn->Conectar();
-$res = $cn->Consulta("SELECT RUN FROM TRABAJADOR where T_ESTADO=1");
+$res = $cn->Consulta("SELECT RUN FROM trabajador where T_ESTADO=1");
 
 $cn2->Conectar();
-$res2 = $cn2->Consulta("SELECT CODIGOOBRA,O_NOMBRE FROM OBRA where O_ESTADO=1");
+$res2 = $cn2->Consulta("SELECT CODIGOOBRA,O_NOMBRE FROM obra where O_ESTADO=1");
 
 $cn3->Conectar();
-$res3 = $cn3->Consulta("Select count(CODIGOPRESTAMO)+1 AS ID from PRESTAMO");
+$res3 = $cn3->Consulta("Select count(CODIGOPRESTAMO)+1 AS ID from prestamo");
 while($row3 = $cn3->getRespuesta($res3)){ 
  $CODIGOPRESTAMO=$row3['ID']; 
 }
@@ -72,7 +72,7 @@ while($row3 = $cn3->getRespuesta($res3)){
       <!-- END LOGO -->
       <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="arrow"></span></a>
       <div class="top-nav">
-        <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+        <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rs=mysql_query($sql,$conexion);	
 	while ($row=mysql_fetch_array($rs)){
@@ -90,7 +90,7 @@ while($row3 = $cn3->getRespuesta($res3)){
               </li>
               <?
   
-	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rss=mysql_query($sql1,$conexion);		
 	while ($row=mysql_fetch_array($rss)){
@@ -131,7 +131,7 @@ while($row3 = $cn3->getRespuesta($res3)){
       <div id="sidebar" class="nav-collapse collapse">
     <?
   	
-	$sql3 = "SELECT PROVEEDOR,PRODUCTO,PERSONAL,OBRA,BODEGA,INFORMEYGRAFICO,ADMINISTRACION from PERMISO WHERE CODIGOPERMISO= $CODIGO ";
+	$sql3 = "SELECT PROVEEDOR,PRODUCTO,PERSONAL,OBRA,BODEGA,INFORMEYGRAFICO,ADMINISTRACION from permiso WHERE CODIGOPERMISO= $CODIGO ";
 	conectar();
 	$rs=mysql_query($sql3,$conexion);	
 	while ($row4=mysql_fetch_array($rs)){
@@ -462,7 +462,7 @@ while($row3 = $cn3->getRespuesta($res3)){
                                                          <input type="text" placeholder="Web Developer" class="m-wrap span8" />
                                                          <label class="control-label">Counrty</label>
                                                          <div class="controls">
-                                                            <input type="text" class="span8 m-wrap" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;US&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]" />
+                                                            
                                                             <p class="help-block"><span class="muted">Start typing to auto complete!. E.g: US</span></p>
                                                          </div>
                                                          <label class="control-label">About</label>
@@ -1075,7 +1075,7 @@ while($row3 = $cn3->getRespuesta($res3)){
 $cn5 = new Conexion();
 $cn5->Conectar();
 $return_arrss = array();
-$res = $cn->Consulta("SELECT p.P_NOMBRE, s.S_CANTIDAD FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA");
+$res = $cn->Consulta("SELECT p.P_NOMBRE, s.S_CANTIDAD FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA");
 
 while ($rowss = $cn->getRespuesta($res)){
     $array['title'] = $rowss['P_NOMBRE'];

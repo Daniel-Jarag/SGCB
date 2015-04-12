@@ -2,7 +2,8 @@
 include '../Conexion.php';
 $cn = new Conexion();
 $cn->Conectar();
-$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,i.R_TALLA,i.R_COLOR,i.R_MATERIAL FROM ROPA i,PRODUCTO p  WHERE p.CODIGOPRODUCTO=i.CODIGOPRODUCTO and p.P_ESTADO=1");
+$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,i.R_TALLA,i.R_COLOR,i.R_MATERIAL FROM ropa i,producto p
+  WHERE p.CODIGOPRODUCTO=i.CODIGOPRODUCTO and p.P_ESTADO=1");
 ?>
 <script>
     $("#tablaRopa").dataTable({

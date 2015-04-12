@@ -3,7 +3,7 @@ include '../Conexion.php';
 $cn = new Conexion();
 $cn->Conectar();
 $return_arr = array();
-$res = $cn->Consulta("Select count(CODIGOPRODUCTO)+1 AS ID from HERRAMIENTA");
+$res = $cn->Consulta("Select count(CODIGOPRODUCTO)+1 AS ID from herramienta");
 
 while ($row = $cn->getRespuesta($res)){
     $array['CODIGO'] = $row['ID'];

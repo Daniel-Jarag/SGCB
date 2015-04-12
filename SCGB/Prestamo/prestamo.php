@@ -8,13 +8,13 @@ $cn = new Conexion();
 $cn2 = new Conexion();
 $cn3 = new Conexion();
 $cn->Conectar();
-$res = $cn->Consulta("SELECT RUN FROM TRABAJADOR where T_ESTADO=1");
+$res = $cn->Consulta("SELECT RUN FROM trabajador where T_ESTADO=1");
 
 $cn2->Conectar();
-$res2 = $cn2->Consulta("SELECT CODIGOOBRA,O_NOMBRE FROM OBRA where O_ESTADO=1");
+$res2 = $cn2->Consulta("SELECT CODIGOOBRA,O_NOMBRE FROM obra where O_ESTADO=1");
 
 $cn3->Conectar();
-$res3 = $cn3->Consulta("Select count(CODIGOPRESTAMO)+1 AS ID from PRESTAMO");
+$res3 = $cn3->Consulta("Select count(CODIGOPRESTAMO)+1 AS ID from prestamo");
 while($row3 = $cn3->getRespuesta($res3)){ 
  $CODIGOPRESTAMO=$row3['ID']; 
 }
@@ -57,7 +57,8 @@ while($row3 = $cn3->getRespuesta($res3)){
       <!-- END LOGO -->
       <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="arrow"></span></a>
       <div class="top-nav">
-        <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+        <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p,stock s 
+ WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rs=mysql_query($sql,$conexion);	
 	while ($row=mysql_fetch_array($rs)){
@@ -75,7 +76,8 @@ while($row3 = $cn3->getRespuesta($res3)){
               </li>
               <?
   
-	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM producto p,stock s 
+ WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rss=mysql_query($sql1,$conexion);		
 	while ($row=mysql_fetch_array($rss)){
@@ -116,7 +118,7 @@ while($row3 = $cn3->getRespuesta($res3)){
   <div id="sidebar" class="nav-collapse collapse">
     <?
   	
-	$sql3 = "SELECT PROVEEDOR,PRODUCTO,PERSONAL,OBRA,BODEGA,INFORMEYGRAFICO,ADMINISTRACION from PERMISO WHERE CODIGOPERMISO= $CODIGO ";
+	$sql3 = "SELECT PROVEEDOR,PRODUCTO,PERSONAL,OBRA,BODEGA,INFORMEYGRAFICO,ADMINISTRACION from permiso WHERE CODIGOPERMISO= $CODIGO ";
 	conectar();
 	$rs=mysql_query($sql3,$conexion);	
 	while ($row4=mysql_fetch_array($rs)){
@@ -389,7 +391,8 @@ while($row3 = $cn3->getRespuesta($res3)){
 $cn5 = new Conexion();
 $cn5->Conectar();
 $return_arrss = array();
-$res = $cn5->Consulta("SELECT p.P_NOMBRE, s.S_CANTIDAD FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA");
+$res = $cn5->Consulta("SELECT p.P_NOMBRE, s.S_CANTIDAD FROM producto p,stock s 
+WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA");
 
 while ($rowss = $cn5->getRespuesta($res)){
     $array['title'] = $rowss['P_NOMBRE'];

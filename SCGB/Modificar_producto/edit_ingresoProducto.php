@@ -10,7 +10,8 @@ $fecha= $_GET['fecha'];
 $total= $_GET['total'];
 $rut= $_GET['rut'];
 $cn->Conectar();
-$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO, p.P_NOMBRE,p.P_MARCA, p.P_MODELO, ip.IP_CANTIDAD, ip.IP_PRECIOUNITARIO from PRODUCTO p, INGRESO_PRODUCTO ip where ip.CODIGOPRODUCTO = p.CODIGOPRODUCTO and ip.NUMEROFACTURA=$id");
+$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO, p.P_NOMBRE,p.P_MARCA, p.P_MODELO, ip.IP_CANTIDAD, ip.IP_PRECIOUNITARIO from producto p, ingreso_producto ip
+ where ip.CODIGOPRODUCTO = p.CODIGOPRODUCTO and ip.NUMEROFACTURA=$id");
 
 $cn2->Conectar();
 $res2 = $cn2->Consulta("SELECT RUT,PD_NOMBRE FROM PROVEEDOR WHERE PD_ESTADO=1");

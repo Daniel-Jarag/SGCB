@@ -4,7 +4,7 @@ $cn = new Conexion();
 $id_insumo = $_GET['id_insumo'];
 $cn->Conectar();
 $return_arr = array();
-$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,i.I_MEDIDA,i.I_TIPOMEDIDA,i.I_TIPOUNIDAD,i.I_CANTIDAD,s.S_CANTIDADMINIMA FROM INSUMO i,PRODUCTO p,STOCK s WHERE p.CODIGOPRODUCTO=i.CODIGOPRODUCTO and p.CODIGOPRODUCTO=s.CODIGOPRODUCTO and p.CODIGOPRODUCTO = '$id_insumo'");
+$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,i.I_MEDIDA,i.I_TIPOMEDIDA,i.I_TIPOUNIDAD,i.I_CANTIDAD,s.S_CANTIDADMINIMA FROM insumo i,producto p,stock s WHERE p.CODIGOPRODUCTO=i.CODIGOPRODUCTO and p.CODIGOPRODUCTO=s.CODIGOPRODUCTO and p.CODIGOPRODUCTO = '$id_insumo'");
 
 while ($row = $cn->getRespuesta($res)){
     $array['CODIGO'] = $row['CODIGOPRODUCTO'];

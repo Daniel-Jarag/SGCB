@@ -8,7 +8,7 @@ $FECHAINICIO = $_POST['FECHAINICIO'];
 $cn->Conectar();
 $return_arr = array();
 
-$res = $cn->Consulta("UPDATE  OBRA SET O_NOMBRE='$NOMBRE', O_FECHAINICIO ='$FECHAINICIO' WHERE CODIGOOBRA='$CODIGOOBRA'");
+$res = $cn->Consulta("UPDATE  obra SET O_NOMBRE='$NOMBRE', O_FECHAINICIO ='$FECHAINICIO' WHERE CODIGOOBRA='$CODIGOOBRA'");
 
 
 $cn->Desconectar();

@@ -29,7 +29,8 @@ include ("../include/conectar.php");
     <div class="navbar-inner">
       <div class="container-fluid"> <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="arrow"></span> </a>
           <div class="top-nav">
-            <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+            <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p, stock s
+ WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rs=mysql_query($sql,$conexion);	
 	while ($row=mysql_fetch_array($rs)){
@@ -47,7 +48,8 @@ include ("../include/conectar.php");
                     </li>
                     <?
   
-	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM producto p, stock s
+ WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rss=mysql_query($sql1,$conexion);		
 	while ($row=mysql_fetch_array($rss)){
@@ -210,17 +212,7 @@ include ("../include/conectar.php");
       </div>
       
       <div id="body">
-         <!-- ???????????????????????????????????????-->
-       <!--  <div id="widget-config" class="modal hide">
-            <div class="modal-header">
-               
-               <h3>widget Settings</h3>
-            </div>
-            <div class="modal-body">
-               <p>Here will be a configuration form</p>
-            </div>
-         </div>-->
-         <!-- ????????????????????????????????????????????-->
+         
          <div class="container-fluid">
             <!-- BEGIN PAGE HEADER--><!-- END PAGE HEADER-->
             <!-- BEGIN PAGE CONTENT-->
@@ -317,56 +309,8 @@ include ("../include/conectar.php");
       jQuery(document).ready(function() { 
 	     App.init();
          FormValidation.init();		 
-	   $("#form2").submit(function(e){ 
-           CODIGO= $('#CODIGO').val()
-		   NOMBRE= $('#NOMBRE').val()
-		   MARCA= $('#MARCA').val()
-		   MODELO= $('#MODELO').val()
-		   IDENTIFICADOR= "I"   
-            e.preventDefault();//Detenemos submit
-            $.ajax({
-                type: 'POST',
-                url: '../Producto/guardar_producto.php',
-                data: { CODIGO:CODIGO, NOMBRE: NOMBRE, MARCA: MARCA, MODELO:MODELO, IDENTIFICADOR:IDENTIFICADOR},
-               success: function(data){
-			   guardaInsumo();
-			   guardarStock();
-               form2.CODIGO.value = "";
-               form2.NOMBRE.value = "";
-               form2.MARCA.value = "";
-			   form2.MODELO.value = "";
-			   form2.TALLA.value = "";
-			   form2.UNIDAD.value = "Unitario";
-			   form2.CANTIDADMINIMA.value = "0";
-     
-                }
-            });
-            
-        });
-      });
 	  
-	  function guardaInsumo(){
-		   CODIGO= $('#CODIGO').val()
-		   TALLA= $('#TALLA').val()
-		   UNIDAD= $('#UNIDAD').val()
-		   $.ajax({
-                type: 'POST',
-                url: 'guardar_insumo.php',
-                data: { CODIGO:CODIGO, TALLA:TALLA, UNIDAD:UNIDAD}
-		         });
-		  }
-		  
-		  function guardarStock(){
-		   CODIGO= $('#CODIGO').val();
-		   CANTIDADMINIMA= $('#CANTIDADMINIMA').val();
-		   CANTIDAD=0;
-		   $.ajax({
-                type: 'POST',
-                url: '../Stock/guardar_stock.php',
-                data: { CODIGO:CODIGO, CANTIDADMINIMA:CANTIDADMINIMA, CANTIDAD:CANTIDAD}
-		         });
-		  }
-		  
+		  });
 		  
    </script>  
 </body>

@@ -6,6 +6,6 @@ $RUT = $_POST['RUT'];
 $NUMEROFACTURA = $_POST['NUMEROFACTURA'];
 $cn->Conectar();
 $return_arr = array();
-$res = $cn->Consulta("DELETE FROM INGRESO_PRODUCTO WHERE CODIGOPRODUCTO='$CODIGO' AND NUMEROFACTURA='$NUMEROFACTURA' AND RUT='$RUT'");
+$res = $cn->Consulta("DELETE FROM ingreso_producto WHERE CODIGOPRODUCTO='$CODIGO' AND NUMEROFACTURA='$NUMEROFACTURA' AND RUT='$RUT'");
 $cn->Desconectar();
 ?>

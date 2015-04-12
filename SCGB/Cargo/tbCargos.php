@@ -2,7 +2,7 @@
 include '../Conexion.php';
 $cn = new Conexion();
 $cn->Conectar();
-$res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE,C_DESCRIPCION FROM  CARGO WHERE C_ESTADO=1");
+$res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE,C_DESCRIPCION FROM  cargo	 WHERE C_ESTADO=1");
 
 ?>
  <!--ACA VA EL ESTILO DE LA  TABLA<link rel="stylesheet" href="../Templates/css/layout.css" type="text/css" media="screen" /> --> 

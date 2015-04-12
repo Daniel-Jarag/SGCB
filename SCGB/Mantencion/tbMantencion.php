@@ -10,7 +10,8 @@ $obtiene = array();
 $obtiene2 = array();
 $guarda1 = array();
 $guarda2 = array();
-$res = $cn->Consulta("SELECT pu.CODIGOPRODUCTO,pu.CODIGOUNITARIO,m.M_FECHAINICIO,DATEDIFF(NOW(),m.M_FECHAINICIO) as DIAS,m.M_DESCRIPCION,m.M_RESPONSABLE,m.M_USUARIOENVIO FROM PRODUCTO_UNITARIO pu,MANTENCION m WHERE pu.PU_ESTADO=4 AND pu.CODIGOPRODUCTO=m.CODIGOPRODUCTO AND pu.CODIGOUNITARIO=m.CODIGOUNITARIO");
+$res = $cn->Consulta("SELECT pu.CODIGOPRODUCTO,pu.CODIGOUNITARIO,m.M_FECHAINICIO,DATEDIFF(NOW(),m.M_FECHAINICIO) as DIAS,m.M_DESCRIPCION,m.M_RESPONSABLE,m.M_USUARIOENVIO FROM producto_unitario pu,mantencion m
+ WHERE pu.PU_ESTADO=4 AND pu.CODIGOPRODUCTO=m.CODIGOPRODUCTO AND pu.CODIGOUNITARIO=m.CODIGOUNITARIO");
 while($row = $cn->getRespuesta($res)){
 	array_push($obtiene, $row['CODIGOPRODUCTO']);
 	array_push($obtiene2, $row['CODIGOUNITARIO']);
@@ -24,13 +25,13 @@ $i = 0;
 $x = 0;
 while ($i < count($obtiene)) {
     $consulta=$obtiene[$i];
-	$res2 = $cn2->Consulta("SELECT P_IDENTIFICADOR FROM PRODUCTO WHERE CODIGOPRODUCTO='$consulta'");
+	$res2 = $cn2->Consulta("SELECT P_IDENTIFICADOR FROM producto WHERE CODIGOPRODUCTO='$consulta'");
 	while($row2 = $cn2->getRespuesta($res2)){
     $IDENTIFICADOR=$row2['P_IDENTIFICADOR'];
 
 	if($IDENTIFICADOR=="H"){
 		 $res3 = $cn3->Consulta("
-SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,h.H_TIPOHERRAMIENTA,h.H_FRECUENCIA,h.H_POTENCIAMAXIMA FROM PRODUCTO p,HERRAMIENTA h WHERE p.CODIGOPRODUCTO=h.CODIGOPRODUCTO AND p.CODIGOPRODUCTO='$consulta'"); 
+SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,h.H_TIPOHERRAMIENTA,h.H_FRECUENCIA,h.H_POTENCIAMAXIMA FROM producto p,herramienta h WHERE p.CODIGOPRODUCTO=h.CODIGOPRODUCTO AND p.CODIGOPRODUCTO='$consulta'"); 
 		 while($row3 = $cn3->getRespuesta($res3)){
 			   array_push($guarda1, $row3['CODIGOPRODUCTO']);
 			   array_push($guarda1, $obtiene2[$i]);
@@ -52,7 +53,7 @@ SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,h.H_TIPO
 			 } 
 		}
 	   else if($IDENTIFICADOR=="V"){
-		     $res3 = $cn3->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,p.P_IDENTIFICADOR,v.V_PERMISO,v.V_YEAR,v.V_CONDICION,v.V_PATENTE FROM VEHICULO v,PRODUCTO p WHERE p.CODIGOPRODUCTO=v.CODIGOPRODUCTO  AND p.CODIGOPRODUCTO='$consulta'"); 
+		     $res3 = $cn3->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,p.P_IDENTIFICADOR,v.V_PERMISO,v.V_YEAR,v.V_CONDICION,v.V_PATENTE FROM vehiculo v ,producto p WHERE p.CODIGOPRODUCTO=v.CODIGOPRODUCTO  AND p.CODIGOPRODUCTO='$consulta'"); 
 		      while($row3 = $cn3->getRespuesta($res3)){
 			   array_push($guarda1, $row3['CODIGOPRODUCTO']);
 			   array_push($guarda1, $obtiene2[$i]);

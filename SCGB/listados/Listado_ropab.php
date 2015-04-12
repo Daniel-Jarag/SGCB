@@ -47,7 +47,9 @@ $y=$_POST['FECHA2'];
          <!-- END LOGO -->
          <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="arrow"></span></a>
          <div class="top-nav">
-           <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+           <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p, stock s 
+ 
+ WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rs=mysql_query($sql,$conexion);	
 	while ($row=mysql_fetch_array($rs)){
@@ -65,7 +67,9 @@ $y=$_POST['FECHA2'];
                  </li>
                  <?
   
-	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM producto p, stock s 
+ 
+ WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rss=mysql_query($sql1,$conexion);		
 	while ($row=mysql_fetch_array($rss)){
@@ -109,7 +113,7 @@ $y=$_POST['FECHA2'];
   <div id="sidebar" class="nav-collapse collapse">
         <?
   	
-	$sql3 = "SELECT PROVEEDOR,PRODUCTO,PERSONAL,OBRA,BODEGA,INFORMEYGRAFICO,ADMINISTRACION from PERMISO WHERE CODIGOPERMISO= $CODIGO ";
+	$sql3 = "SELECT PROVEEDOR,PRODUCTO,PERSONAL,OBRA,BODEGA,INFORMEYGRAFICO,ADMINISTRACION from permiso WHERE CODIGOPERMISO= $CODIGO ";
 	conectar();
 	$rs=mysql_query($sql3,$conexion);	
 	while ($row4=mysql_fetch_array($rs)){
@@ -303,7 +307,8 @@ document.write("<span class='class8' id=fecha>"+dayarray[day]+" "+daym+" de "+mo
                            <tbody>
 						   <?
   	
-	$sql = "SELECT DISTINCT(p.P_NOMBRE),p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,i.R_TALLA,i.R_COLOR,i.R_MATERIAL,s.S_CANTIDAD,s.S_CANTIDADMINIMA FROM ROPA i,PRODUCTO p,STOCK s,ingreso_producto ip WHERE p.CODIGOPRODUCTO=i.CODIGOPRODUCTO and p.CODIGOPRODUCTO=s.CODIGOPRODUCTO and p.P_ESTADO=1 and ip.CODIGOPRODUCTO =p.CODIGOPRODUCTO and IP_FECHA BETWEEN '$x' and '$y'";
+	$sql = "SELECT DISTINCT(p.P_NOMBRE),p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,i.R_TALLA,i.R_COLOR,i.R_MATERIAL,s.S_CANTIDAD,s.S_CANTIDADMINIMA FROM ropa i,producto p,stock s,ingreso_producto ip
+ WHERE p.CODIGOPRODUCTO=i.CODIGOPRODUCTO and p.CODIGOPRODUCTO=s.CODIGOPRODUCTO and p.P_ESTADO=1 and ip.CODIGOPRODUCTO =p.CODIGOPRODUCTO and IP_FECHA BETWEEN '$x' and '$y'";
 	conectar();
 	$rs=mysql_query($sql,$conexion);	
 	while ($row=mysql_fetch_array($rs)){

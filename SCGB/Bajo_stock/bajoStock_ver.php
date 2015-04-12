@@ -14,7 +14,8 @@ $id= $_GET['id'];
 $obtiene = array();
 $guarda1 = array();
 
-$res3 = $cn3->Consulta("SELECT s.S_CANTIDAD + count(pu.CODIGOPRODUCTO) AS RESULTADO,s.S_CANTIDAD,s.S_CANTIDADMINIMA,count(pu.CODIGOPRODUCTO) AS BAJA FROM STOCK s,PRODUCTO_UNITARIO pu WHERE pu.PU_ESTADO=1 AND s.CODIGOPRODUCTO=pu.CODIGOPRODUCTO AND pu.CODIGOPRODUCTO='$id'");
+$res3 = $cn3->Consulta("SELECT s.S_CANTIDAD + count(pu.CODIGOPRODUCTO) AS RESULTADO,s.S_CANTIDAD,s.S_CANTIDADMINIMA,count(pu.CODIGOPRODUCTO) AS BAJA FROM stock s,producto_unitario pu 
+WHERE pu.PU_ESTADO=1 AND s.CODIGOPRODUCTO=pu.CODIGOPRODUCTO AND pu.CODIGOPRODUCTO='$id'");
 while($row3 = $cn3->getRespuesta($res3)){
         $RESULTADO=$row3['RESULTADO'];
 		$CANTIDAD=$row3['S_CANTIDAD'];
@@ -22,15 +23,18 @@ while($row3 = $cn3->getRespuesta($res3)){
 		$CANTIDAD_BAJA=$row3['BAJA'];
 	}
 	
-$res4 = $cn4->Consulta("SELECT count(CODIGOPRODUCTO) AS TOTAL FROM PRODUCTO_UNITARIO WHERE CODIGOPRODUCTO='$id' AND PU_ESTADO=1");
+$res4 = $cn4->Consulta("SELECT count(CODIGOPRODUCTO) AS TOTAL FROM producto_unitario
+ WHERE CODIGOPRODUCTO='$id' AND PU_ESTADO=1");
 while($row4 = $cn4->getRespuesta($res4)){
         $BODEGA=$row4['TOTAL'];
 	}
-$res5 = $cn5->Consulta("SELECT count(CODIGOPRODUCTO) AS TOTAL FROM PRODUCTO_UNITARIO WHERE CODIGOPRODUCTO='$id' AND PU_ESTADO=5");
+$res5 = $cn5->Consulta("SELECT count(CODIGOPRODUCTO) AS TOTAL FROM producto_unitario 
+WHERE CODIGOPRODUCTO='$id' AND PU_ESTADO=5");
 while($row5 = $cn5->getRespuesta($res5)){
         $MANTENCION=$row5['TOTAL'];
 	}
-$res6 = $cn6->Consulta("SELECT count(CODIGOPRODUCTO) AS TOTAL FROM PRODUCTO_UNITARIO WHERE CODIGOPRODUCTO='$id' AND PU_ESTADO between 2 and 3
+$res6 = $cn6->Consulta("SELECT count(CODIGOPRODUCTO) AS TOTAL FROM  producto_unitario 
+WHERE CODIGOPRODUCTO='$id' AND PU_ESTADO between 2 and 3
 ");
 while($row6 = $cn6->getRespuesta($res6)){
         $ARRIENDO=$row6['TOTAL'];
@@ -39,7 +43,8 @@ while($row6 = $cn6->getRespuesta($res6)){
 /*---------------------------------------LLENAR LAS IMAGENES DE LA PARTE SUPERIOR----------------------------------------------------------------------------------------------------------------------------------*/
 
 
-$res = $cn->Consulta("SELECT CODIGOPRODUCTO,CODIGOUNITARIO,PU_ESTADO FROM PRODUCTO_UNITARIO WHERE CODIGOPRODUCTO='$id'");
+$res = $cn->Consulta("SELECT CODIGOPRODUCTO,CODIGOUNITARIO,PU_ESTADO FROM  producto_unitario 
+WHERE CODIGOPRODUCTO='$id'");
 while($row = $cn->getRespuesta($res)){
 	  array_push($obtiene, $row['CODIGOPRODUCTO']);
 	  array_push($obtiene, $row['CODIGOUNITARIO']);
@@ -56,7 +61,9 @@ while ($i < count($obtiene)) {
 	$i++;
 	
 	
-		 $res2 = $cn2->Consulta("SELECT p.CODIGOPRODUCTO,pu.CODIGOUNITARIO,ip.IP_FECHA,ip.NUMEROFACTURA,ep.EP_ESTADOPRODUCTO,ep.EP_OBSERVACION   FROM PRODUCTO p,PRODUCTO_UNITARIO pu,INGRESO_PRODUCTO ip,ESTADO_PRODUCTO ep WHERE p.CODIGOPRODUCTO=pu.CODIGOPRODUCTO AND p.CODIGOPRODUCTO=ep.CODIGOPRODUCTO AND p.CODIGOPRODUCTO=ip.CODIGOPRODUCTO AND pu.CODIGOUNITARIO=ep.CODIGOUNITARIO AND pu.PU_NUMEROFACTURA=ip.NUMEROFACTURA AND p.CODIGOPRODUCTO='$consulta' AND pu.CODIGOUNITARIO=$consulta2 AND ep.EP_FECHA=(select max(ep.EP_FECHA) FROM PRODUCTO p,PRODUCTO_UNITARIO pu,ESTADO_PRODUCTO ep WHERE p.CODIGOPRODUCTO='$consulta' AND pu.CODIGOUNITARIO=$consulta2 AND p.CODIGOPRODUCTO=ep.CODIGOPRODUCTO AND pu.CODIGOUNITARIO=ep.CODIGOUNITARIO)"); 
+		 $res2 = $cn2->Consulta("SELECT p.CODIGOPRODUCTO,pu.CODIGOUNITARIO,ip.IP_FECHA,ip.NUMEROFACTURA,ep.EP_ESTADOPRODUCTO,ep.EP_OBSERVACION   FROM producto p,producto_unitario pu,ingreso_producto ip,estado_producto ep
+ WHERE p.CODIGOPRODUCTO=pu.CODIGOPRODUCTO AND p.CODIGOPRODUCTO=ep.CODIGOPRODUCTO AND p.CODIGOPRODUCTO=ip.CODIGOPRODUCTO AND pu.CODIGOUNITARIO=ep.CODIGOUNITARIO AND pu.PU_NUMEROFACTURA=ip.NUMEROFACTURA AND p.CODIGOPRODUCTO='$consulta' AND pu.CODIGOUNITARIO=$consulta2 AND ep.EP_FECHA=(select max(ep.EP_FECHA) producto p,producto_unitario pu,estado_producto ep
+ WHERE p.CODIGOPRODUCTO='$consulta' AND pu.CODIGOUNITARIO=$consulta2 AND p.CODIGOPRODUCTO=ep.CODIGOPRODUCTO AND pu.CODIGOUNITARIO=ep.CODIGOUNITARIO)"); 
         
 		 while($row2 = $cn2->getRespuesta($res2)){
 			   array_push($guarda1, $row2['CODIGOPRODUCTO']);
@@ -111,7 +118,8 @@ while ($i < count($obtiene)) {
       <!-- END LOGO -->
       <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="arrow"></span></a>
       <div class="top-nav">
-        <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+        <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p, stock s
+ WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rs=mysql_query($sql,$conexion);	
 	while ($row=mysql_fetch_array($rs)){
@@ -129,7 +137,8 @@ while ($i < count($obtiene)) {
               </li>
               <?
   
-	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM PRODUCTO p, STOCK s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM producto p, stock s
+ WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rss=mysql_query($sql1,$conexion);		
 	while ($row=mysql_fetch_array($rss)){
@@ -170,7 +179,7 @@ while ($i < count($obtiene)) {
    <div id="sidebar" class="nav-collapse collapse">
     <?
   	
-	$sql3 = "SELECT PROVEEDOR,PRODUCTO,PERSONAL,OBRA,BODEGA,INFORMEYGRAFICO,ADMINISTRACION from PERMISO WHERE CODIGOPERMISO= $CODIGO ";
+	$sql3 = "SELECT PROVEEDOR,PRODUCTO,PERSONAL,OBRA,BODEGA,INFORMEYGRAFICO,ADMINISTRACION from permiso WHERE CODIGOPERMISO= $CODIGO ";
 	conectar();
 	$rs=mysql_query($sql3,$conexion);	
 	while ($row4=mysql_fetch_array($rs)){

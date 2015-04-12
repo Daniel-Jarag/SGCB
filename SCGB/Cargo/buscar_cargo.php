@@ -3,7 +3,7 @@ include '../Conexion.php';
 $cn = new Conexion();
 $NOMBRE = $_GET['NOMBRE'];
 $cn->Conectar();
-$res = $cn->Consulta("SELECT count(C_NOMBRE) as CUENTA,C_ESTADO FROM CARGO WHERE C_NOMBRE='$NOMBRE'");
+$res = $cn->Consulta("SELECT count(C_NOMBRE) as CUENTA,C_ESTADO FROM cargo WHERE C_NOMBRE='$NOMBRE'");
 
 while ($row = $cn->getRespuesta($res)){
     if( $row['CUENTA'] ==0){

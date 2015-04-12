@@ -2,7 +2,7 @@
 include '../Conexion.php';
 $cn = new Conexion();
 $cn->Conectar();
-$res = $cn->Consulta("SELECT CODIGOOBRA,O_NOMBRE,O_FECHAINICIO FROM  OBRA WHERE O_ESTADO='1'");
+$res = $cn->Consulta("SELECT CODIGOOBRA,O_NOMBRE,O_FECHAINICIO FROM  obra WHERE O_ESTADO='1'");
 
 ?>
  <!--ACA VA EL ESTILO DE LA  TABLA<link rel="stylesheet" href="../Templates/css/layout.css" type="text/css" media="screen" /> --> 

@@ -2,7 +2,8 @@
 include '../Conexion.php';
 $cn = new Conexion();
 $cn->Conectar();
-$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,h.H_TIPOHERRAMIENTA,h.H_FRECUENCIA,h.H_POTENCIAMAXIMA FROM  HERRAMIENTA h,PRODUCTO p WHERE p.CODIGOPRODUCTO=h.CODIGOPRODUCTO and p.P_ESTADO=1");
+$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,h.H_TIPOHERRAMIENTA,h.H_FRECUENCIA,h.H_POTENCIAMAXIMA FROM  herramienta h,producto p
+ WHERE p.CODIGOPRODUCTO=h.CODIGOPRODUCTO and p.P_ESTADO=1");
 ?>
 <script>
     $("#tablaHerramienta").dataTable({

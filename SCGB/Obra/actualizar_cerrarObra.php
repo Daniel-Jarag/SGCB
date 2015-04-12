@@ -6,6 +6,6 @@ $FECHATERMINO = $_POST['FECHATERMINO'];
 
 $cn->Conectar();
 $return_arr = array();
-$res = $cn->Consulta("UPDATE  OBRA SET O_FECHATERMINO ='$FECHATERMINO',O_ESTADO='2' WHERE CODIGOOBRA='$CODIGOOBRA'");
+$res = $cn->Consulta("UPDATE  obra SET O_FECHATERMINO ='$FECHATERMINO',O_ESTADO='2' WHERE CODIGOOBRA='$CODIGOOBRA'");
 $cn->Desconectar();
 ?>

@@ -2,7 +2,8 @@
 include '../Conexion.php';
 $cn = new Conexion();
 $cn->Conectar();
-$res = $cn->Consulta("select ip.NUMEROFACTURA, ip.IP_TOTALFACTURA, ip.IP_FECHA, SUM(ip.IP_CANTIDAD)as CANTIDAD, pd.PD_NOMBRE, pd.RUT from INGRESO_PRODUCTO ip,PROVEEDOR pd where ip.RUT=pd.RUT  group by ip.NUMEROFACTURA");
+$res = $cn->Consulta("select ip.NUMEROFACTURA, ip.IP_TOTALFACTURA, ip.IP_FECHA, SUM(ip.IP_CANTIDAD)as CANTIDAD, pd.PD_NOMBRE, pd.RUT from ingreso_producto ip,proveedor pd
+ where ip.RUT=pd.RUT  group by ip.NUMEROFACTURA");
 ?>
 
  <!--FIn de la llamada PHP --> 

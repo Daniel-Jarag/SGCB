@@ -6,7 +6,8 @@ include '../Conexion.php';
 $cn = new Conexion();
 $id= $_GET['id'];
 $cn->Conectar();
-$res = $cn->Consulta("SELECT p.PD_NOMBRE,ip.NUMEROFACTURA,ip.IP_TOTALFACTURA,ip.IP_FECHA,ip.IP_USUARIO FROM INGRESO_PRODUCTO ip, PROVEEDOR p WHERE ip.RUT=p.RUT AND NUMEROFACTURA=$id");
+$res = $cn->Consulta("SELECT p.PD_NOMBRE,ip.NUMEROFACTURA,ip.IP_TOTALFACTURA,ip.IP_FECHA,ip.IP_USUARIO FROM ingreso_producto ip, proveedor p
+ WHERE ip.RUT=p.RUT AND NUMEROFACTURA=$id");
 while($row = $cn->getRespuesta($res)){
 	$RUT=$row['PD_NOMBRE'];
 	$NUMEROFACTURA=$row['NUMEROFACTURA'];

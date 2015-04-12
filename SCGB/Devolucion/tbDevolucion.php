@@ -2,7 +2,8 @@
 include '../Conexion.php';
 $cn = new Conexion();
 $cn->Conectar();
-$res = $cn->Consulta("SELECT pt.CODIGOPRESTAMO,o.O_NOMBRE,t.RUN,t.T_NOMBRE,t.T_APELLIDO,pt.PT_FECHA,pt.PT_TOTALPRODUCTO,pt.PT_COMENTARIO FROM PRESTAMO pt,TRABAJADOR t,OBRA o WHERE pt.RUN=t.RUN AND pt.CODIGOOBRA=o.CODIGOOBRA AND pt.PT_ESTADO='1'");
+$res = $cn->Consulta("SELECT pt.CODIGOPRESTAMO,o.O_NOMBRE,t.RUN,t.T_NOMBRE,t.T_APELLIDO,pt.PT_FECHA,pt.PT_TOTALPRODUCTO,pt.PT_COMENTARIO FROM prestamo pt,trabajador t,obra o
+ WHERE pt.RUN=t.RUN AND pt.CODIGOOBRA=o.CODIGOOBRA AND pt.PT_ESTADO='1'");
 ?>
 
  <!--FIn de la llamada PHP --> 
