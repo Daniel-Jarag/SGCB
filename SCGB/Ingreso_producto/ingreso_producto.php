@@ -9,10 +9,10 @@ $cn->Conectar();
 $res = $cn->Consulta("SELECT RUT,PD_NOMBRE FROM proveedor WHERE PD_ESTADO=1");
 ?>
 <!DOCTYPE html>
-<html lang="es"> 
+<html lang="es"><head> 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
-<head>
+
    <meta charset="utf-8" />
    <title>Bureau Veritas|Cesmec S.C.G.B </title>
    <link rel="shortcut icon" href="../favicon.ico">
@@ -119,8 +119,8 @@ $res = $cn->Consulta("SELECT RUT,PD_NOMBRE FROM proveedor WHERE PD_ESTADO=1");
 		?>
       <li class="has-sub "> <a href="javascript:;"> <i class="icon-user "></i> <span class="title" >Proveedor</span> <span class="arrow "></span></a>
         <ul class="sub">
-          <li ><a href="../proveedor/add_proveedor.php">Agregar Proveedor</a></li>
-          <li ><a href="../proveedor/mod_proveedor.php">Buscar</a></li>
+          <li ><a href="../Proveedor/add_proveedor.php">Agregar Proveedor</a></li>
+          <li ><a href="../Proveedor/mod_proveedor.php">Buscar</a></li>
         </ul>
       </li>
       <? }
@@ -299,7 +299,7 @@ $res = $cn->Consulta("SELECT RUT,PD_NOMBRE FROM proveedor WHERE PD_ESTADO=1");
                       <h4>Confirmación de Ingreso de Producto</h4>
                       <div class="span6">
                         <ul class="unstyled amounts">
-                          <li><strong>Proveedor: </strong><b id='tx_proveedor'></b></span> </li>
+                          <li><strong>Proveedor: </strong><b id='tx_proveedor'></b> </li>
                           <li><strong>N° Factura: </strong><b id='tx_numeroFactura'></b> </li>
                           <li><strong>Fecha: </strong><b id='tx_fecha'></b></li>
                         </ul>
@@ -308,7 +308,7 @@ $res = $cn->Consulta("SELECT RUT,PD_NOMBRE FROM proveedor WHERE PD_ESTADO=1");
                         <div id="tbDetalleProducto" class="table table-striped table-hover"></div>
                       <div class="span6">
                         <ul class="unstyled amounts">
-                          <li><strong>Total: </strong><b id='tx_totalFactura'></b></span> </li>
+                          <li><strong>Total: </strong><b id='tx_totalFactura'></b> </li>
                           <li><strong>Cantidad de Productos: </strong><b id='tx_cantidad'></b> </li>
                           <li><strong>Usuario: </strong><b id='tx_usuario'></b></li>
                         </ul>

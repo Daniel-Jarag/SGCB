@@ -4,7 +4,7 @@ $cn = new Conexion();
 $id_usuario = $_GET['id_usuario'];
 $cn->Conectar();
 $return_arr = array();
-$res = $cn->Consulta("SELECT u.U_LOGIN,u.CODIGOPERMISO,u.U_PASSWORD,u.U_NOMBRE,u.U_APELLIDO,u.U_TELEFONO,u.U_EMAIL,p.PROVEEDOR,p.PRODUCTO,p.PERSONAL,p.OBRA,p.BODEGA,p.INFORMEYGRAFICO,p.ADMINISTRACION FROM USUARIO u, PERMISO p WHERE u.CODIGOPERMISO=p.CODIGOPERMISO AND u.U_LOGIN='$id_usuario'");
+$res = $cn->Consulta("SELECT u.U_LOGIN,u.CODIGOPERMISO,u.U_PASSWORD,u.U_NOMBRE,u.U_APELLIDO,u.U_TELEFONO,u.U_EMAIL,p.PROVEEDOR,p.PRODUCTO,p.PERSONAL,p.OBRA,p.BODEGA,p.INFORMEYGRAFICO,p.ADMINISTRACION FROM usuario u, permiso p WHERE u.CODIGOPERMISO=p.CODIGOPERMISO AND u.U_LOGIN='$id_usuario'");
 
 while ($row = $cn->getRespuesta($res)){
 	$array['CODIGOPERMISO'] = $row['CODIGOPERMISO'];

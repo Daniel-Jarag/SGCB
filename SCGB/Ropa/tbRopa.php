@@ -2,7 +2,7 @@
 include '../Conexion.php';
 $cn = new Conexion();
 $cn->Conectar();
-$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,i.R_TALLA,i.R_COLOR,i.R_MATERIAL,s.S_CANTIDAD,s.S_CANTIDADMINIMA FROM ROPA i,PRODUCTO p,STOCK s WHERE p.CODIGOPRODUCTO=i.CODIGOPRODUCTO and p.CODIGOPRODUCTO=s.CODIGOPRODUCTO and p.P_ESTADO=1");
+$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,p.P_MARCA,p.P_MODELO,p.P_OBSERVACION,i.R_TALLA,i.R_COLOR,i.R_MATERIAL,s.S_CANTIDAD,s.S_CANTIDADMINIMA FROM ropa i,producto p,stock s WHERE p.CODIGOPRODUCTO=i.CODIGOPRODUCTO and p.CODIGOPRODUCTO=s.CODIGOPRODUCTO and p.P_ESTADO=1");
 
 ?>
  <!--ACA VA EL ESTILO DE LA  TABLA<link rel="stylesheet" href="../Templates/css/layout.css" type="text/css" media="screen" /> --> 

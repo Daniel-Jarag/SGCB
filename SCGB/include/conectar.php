@@ -1,11 +1,13 @@
 <?
 
 	function conectar() {
-		$host="localhost";
-		$base = "proyecto";
-		$user="root";
-		$pass="";
+		
+		$host="127.0.0.1";
+		$base = "tsigroup_proyecto";
+		$user="tsigroup_proyect";
+		$pass="tuKKrWy49k4T";
 		global $conexion;
+		
 		if($conexion = mysql_connect ($host,$user,$pass)){
 			mysql_select_db($base,$conexion);
 			

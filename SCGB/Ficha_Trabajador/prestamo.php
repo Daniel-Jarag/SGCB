@@ -110,7 +110,7 @@ while($row3 = $cn3->getRespuesta($res3)){
     </div>
   </div>
 </div>
-<div id="container" class="row-fluid">
+<div id="container" class="row-fluid"><a href="../graficos">graficos</a><a href="../graficosprueba">graficosprueba</a><a href="../Herramienta">Herramienta</a><a href="../Historico_Trabajador">Historico_Trabajador</a>
   <div id="sidebar" class="nav-collapse collapse">
     <?
   	
@@ -129,8 +129,8 @@ while($row3 = $cn3->getRespuesta($res3)){
 		?>
       <li class="has-sub "> <a href="javascript:;"> <i class="icon-user "></i> <span class="title" >Proveedor</span> <span class="arrow "></span></a>
         <ul class="sub">
-          <li ><a href="../proveedor/add_proveedor.php">Agregar Proveedor</a></li>
-          <li ><a href="../proveedor/mod_proveedor.php">Buscar</a></li>
+          <li ><a href="../Proveedor/add_proveedor.php">Agregar Proveedor</a></li>
+          <li ><a href="../Proveedor/mod_proveedor.php">Buscar</a></li>
         </ul>
       </li>
       <? }

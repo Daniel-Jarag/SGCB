@@ -43,7 +43,7 @@ $CODIGO= $_SESSION["PERMISO"];
      <div class="navbar-inner">
        <div class="container-fluid">
          <!-- BEGIN LOGO -->
-         <a class="brand" href="../inicio.php"> <img src="../assets/img/logo.png" alt="Conquer" /> </a>
+         e<a class="brand" href="../inicio.php"> <img src="../assets/img/logo.png" alt="Conquer" /> </a>
          <!-- END LOGO -->
          <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="arrow"></span></a>
          <div class="top-nav">
@@ -123,8 +123,8 @@ $CODIGO= $_SESSION["PERMISO"];
 		?>
           <li class="has-sub "> <a href="javascript:;"> <i class="icon-user "></i> <span class="title" >Proveedor</span> <span class="arrow "></span></a>
             <ul class="sub">
-              <li ><a href="../proveedor/add_proveedor.php">Agregar Proveedor</a></li>
-              <li ><a href="../proveedor/mod_proveedor.php">Buscar</a></li>
+              <li ><a href="../Proveedor/add_proveedor.php">Agregar Proveedor</a></li>
+              <li ><a href="../Proveedor/mod_proveedor.php">Buscar</a></li>
             </ul>
           </li>
           <? }

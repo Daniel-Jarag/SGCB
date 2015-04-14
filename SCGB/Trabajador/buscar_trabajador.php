@@ -4,7 +4,7 @@ $cn = new Conexion();
 $rut = $_GET['rut'];
 $cn->Conectar();
 $return_arr = array();
-$res = $cn->Consulta("SELECT count(RUN) as CUENTA,T_ESTADO FROM TRABAJADOR  WHERE RUN='$rut'");
+$res = $cn->Consulta("SELECT count(RUN) as CUENTA,T_ESTADO FROM trabajador  WHERE RUN='$rut'");
 
 while ($row = $cn->getRespuesta($res)){
     if( $row['CUENTA'] ==0){

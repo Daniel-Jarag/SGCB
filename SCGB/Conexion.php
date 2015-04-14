@@ -8,12 +8,12 @@ class Conexion {
     private $nombreDb;
     private $conexion;
     private $cantidadConsultas;
- 
+
     function Conexion() {
-        $this->host = "localhost";
-        $this->usuario = "root";
-        $this->contrasena = "";
-        $this->nombreDb = "proyecto";
+        $this->host = "127.0.0.1";
+        $this->usuario = "tsigroup_proyect";
+        $this->contrasena = "tuKKrWy49k4T";
+        $this->nombreDb = "tsigroup_proyecto";
         $this->cantidadConsultas = 0;
     }
  

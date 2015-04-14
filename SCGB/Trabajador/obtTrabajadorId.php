@@ -5,7 +5,7 @@ $id_trabajador = $_GET['id_trabajador'];
 $codigoHistorico = $_GET['codigoHistorico'];
 $cn->Conectar();
 $return_arr = array();
-$res = $cn->Consulta("SELECT t.RUN,c.C_NOMBRE,t.T_NOMBRE,t.T_APELLIDO,t.T_SEXO,t.T_DIRECCION,t.T_TELEFONO,ht.HT_FECHAINICIO FROM CARGO c, TRABAJADOR t,HISTORICO_TRABAJADOR ht WHERE c.CODIGOCARGO=t.CODIGOCARGO AND t.RUN=ht.RUN AND t.RUN='$id_trabajador' AND ht.CODIGOHISTORICOTRABAJADOR='$codigoHistorico'");
+$res = $cn->Consulta("SELECT t.RUN,c.C_NOMBRE,t.T_NOMBRE,t.T_APELLIDO,t.T_SEXO,t.T_DIRECCION,t.T_TELEFONO,ht.HT_FECHAINICIO FROM cargo c, trabajador t,historico_trabajador ht WHERE c.CODIGOCARGO=t.CODIGOCARGO AND t.RUN=ht.RUN AND t.RUN='$id_trabajador' AND ht.CODIGOHISTORICOTRABAJADOR='$codigoHistorico'");
 
 while ($row = $cn->getRespuesta($res)){
     $array['RUT'] = $row['RUN'];

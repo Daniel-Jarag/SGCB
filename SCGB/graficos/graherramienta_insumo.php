@@ -131,8 +131,8 @@ include ("../include/conectar.php");
                <span class="arrow "></span>
                </a>
                <ul class="sub">
-                  <li ><a href="../proveedor/add_proveedor.php">Agregar Proveedor</a></li>
-                  <li ><a href="../proveedor/mod_proveedor.php">Buscar</a></li>
+                  <li ><a href="../Proveedor/add_proveedor.php">Agregar Proveedor</a></li>
+                  <li ><a href="../Proveedor/mod_proveedor.php">Buscar</a></li>
 				  <li ><a href="../listados/Listado_proveedor.php">Listado de proveedor</a></li>
                   <li ><a href="../graficos/producto_proveedor.php">Grafico</a></li>
                  
