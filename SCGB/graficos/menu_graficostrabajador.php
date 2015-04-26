@@ -1,4 +1,4 @@
-<? session_start();
+<?php  session_start();
 include ("../include/conectar.php");	
 ?>
 <!DOCTYPE html>
@@ -170,7 +170,7 @@ include ("../include/conectar.php");
                   <li ><a href="../Ficha_Trabajador/prestamo.php">Ficha Trabajador</a></li>
 				 <li ><a href="#">Bajo de Stock</a></li>
 				 <li ><a href="../Baja_producto/baja_producto.php">Dar de baja Producto</a></li>
-                 <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+                 <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
 				 
 				 <li ><a href="../graficos/menu_graficoBodega.php">Grafico</a></li>
                  <li ><a href="../listados/menu_listadobodega.php">Informe</a></li>

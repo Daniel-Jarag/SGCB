@@ -1,4 +1,4 @@
-<? session_start();
+<?php  session_start();
 include ("../include/conectar.php");
 $CODIGO= $_SESSION["PERMISO"];	
 ?>
@@ -57,7 +57,7 @@ while($row3 = $cn3->getRespuesta($res3)){
       <!-- END LOGO -->
       <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="arrow"></span></a>
       <div class="top-nav">
-        <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p,stock s 
+        <?php  $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p,stock s 
  WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rs=mysql_query($sql,$conexion);	
@@ -129,7 +129,7 @@ while($row3 = $cn3->getRespuesta($res3)){
     <ul>
       <li class=""> <a href="../inicio.php"> <i class="icon-home"></i> <span class="title ">Inicio</span> <span class="arrow "></span></a></li>
       <li class=""> <a href="../Calendario/calendario.php"> <i class="icon-calendar"></i> <span class="title">Calendario</span> <span class="arrow "></span></a></li>
-      <? if($row4["PROVEEDOR"]==1){
+      <?php  if($row4["PROVEEDOR"]==1){
 		?>
       <li class="has-sub "> <a href="javascript:;"> <i class="icon-user "></i> <span class="title" >Proveedor</span> <span class="arrow "></span></a>
         <ul class="sub">
@@ -137,7 +137,7 @@ while($row3 = $cn3->getRespuesta($res3)){
           <li ><a href="..mod_proveedor.php">Buscar</a></li>
         </ul>
       </li>
-      <? }
+      <?php  }
 	
 		if($row4["PRODUCTO"]==1){
 		?>
@@ -149,7 +149,7 @@ while($row3 = $cn3->getRespuesta($res3)){
           <li ><a href="../Vehiculo/mod_vehiculo.php">Vehiculo</a></li>
         </ul>
       </li>
-      <? }
+      <?php  }
 	
 		if($row4["PERSONAL"]==1){
 		?>
@@ -162,7 +162,7 @@ while($row3 = $cn3->getRespuesta($res3)){
           <li ><a href="../Trabajador/termino_contrato.php">Termino Contrato</a></li>
         </ul>
       </li>
-      <? }
+      <?php  }
 	
 		 if($row4["OBRA"]==1){
 		?>
@@ -173,7 +173,7 @@ while($row3 = $cn3->getRespuesta($res3)){
           <li ><a href="../Obra/cerrar_obra.php">Cerrar Obra</a></li>
         </ul>
       </li>
-      <? }
+      <?php  }
 	
 	      if($row4["BODEGA"]==1){
 		?>
@@ -185,10 +185,10 @@ while($row3 = $cn3->getRespuesta($res3)){
           <li ><a href="../Ficha_Trabajador/prestamo.php">Ficha Trabajador</a></li>
           <li ><a href="../Bajo_stock/baja_stock.php">Bajo de Stock</a></li>
           <li ><a href="../Baja_producto/baja_producto.php">Dar de baja Producto</a></li>
-          <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+          <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
         </ul>
       </li>
-      <? }
+      <?php  }
 	
 	      if($row4["INFORMEYGRAFICO"]==1){
 		?>
@@ -198,7 +198,7 @@ while($row3 = $cn3->getRespuesta($res3)){
           <li ><a href="../listados/menu_listados.php">Informes</a></li>
         </ul>
       </li>
-      <? }
+      <?php  }
 	
  if($row4["ADMINISTRACION"]==1){
 		?>
@@ -211,7 +211,7 @@ while($row3 = $cn3->getRespuesta($res3)){
           <li ><a href="../RespaldoBD/GenerarBD.php">Respalda base de datos</a></li>
         </ul>
       </li>
-      <? }
+      <?php  }
 	}
 		 ?>
       <li class=""> <a href="../logout.php"> <i class="icon-user"></i> <span class="title">Cerrar seccion</span></a></li>
@@ -267,15 +267,15 @@ while($row3 = $cn3->getRespuesta($res3)){
                     <div class="tab-pane active" id="tab1">
                       <h3>Ingreso de Datos del Prestamo</h3>
                       <input type="hidden" name="USUARIO"  id="USUARIO" value=" <?php echo $_SESSION["USUARIO"];?> " />
-                      <input type="hidden" name="CODIGOPRESTAMO"  id="CODIGOPRESTAMO" value=" <? echo $CODIGOPRESTAMO; ?> " />
+                      <input type="hidden" name="CODIGOPRESTAMO"  id="CODIGOPRESTAMO" value=" <?php  echo $CODIGOPRESTAMO; ?> " />
                       <div class="control-group">
                         <label class="control-label">Trabajador<span class="required">*</span></label>
                         <div class="controls">
                           <select id="select2_run" class="span6 select2" onclick="tipo();">
                              <option value=""></option>
                              <?php while($row = $cn->getRespuesta($res)){ ?>
-                              <option value="<? echo $row['RUN']; ?>" ><? echo $row['RUN']; ?></option>
-                             <? }?> 
+                              <option value="<?php  echo $row['RUN']; ?>" ><?php  echo $row['RUN']; ?></option>
+                             <?php  }?> 
                             </select>
                           <a href="../Trabajador/add_trabajador.php"><img src="../Imagenes/anadir-mas-verde-icono-5682-32.png" style="vertica-align: middle;" /> </a> 
                       </div>
@@ -286,8 +286,8 @@ while($row3 = $cn3->getRespuesta($res3)){
                           <select id="select2_obra" class="span6 select2">
                              <option value=""></option>
                              <?php while($row2 = $cn2->getRespuesta($res2)){ ?>
-                              <option value="<? echo $row2['CODIGOOBRA']; ?>" ><? echo $row2['O_NOMBRE']; ?></option>
-                             <? }?> 
+                              <option value="<?php  echo $row2['CODIGOOBRA']; ?>" ><?php  echo $row2['O_NOMBRE']; ?></option>
+                             <?php  }?> 
                             </select>
                           <a href="../Obra/add_obra.php"><img src="../Imagenes/anadir-mas-verde-icono-5682-32.png" style="vertica-align: middle;" /> </a> 
                       </div>
@@ -334,7 +334,7 @@ while($row3 = $cn3->getRespuesta($res3)){
                       <h4>Confirmación de Prestamo</h4>
                       <div>                   
                          <ul class="lista-wid cf">
-	                       <li><strong>Codigo Prestamo: <? echo $CODIGOPRESTAMO; ?></strong></li>
+	                       <li><strong>Codigo Prestamo: <?php  echo $CODIGOPRESTAMO; ?></strong></li>
 	                       <li><strong>RUN: </strong><b id='tx_run'></b></li>
 	                       <li><strong>Cargo: </strong><b id='tx_cargo'></b></li>
                            <li><strong>Nombre: </strong><b id='tx_nombre'></b></span> </li>

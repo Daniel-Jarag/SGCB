@@ -1,4 +1,4 @@
-<? session_start();
+<?php  session_start();
 include ("../include/conectar.php");	
 $CODIGO= $_SESSION["PERMISO"];
 ?>
@@ -171,7 +171,7 @@ $res = $cn->Consulta("SELECT RUT,PD_NOMBRE FROM proveedor WHERE PD_ESTADO=1");
           <li ><a href="../Ficha_Trabajador/prestamo.php">Ficha Trabajador</a></li>
           <li ><a href="../Bajo_stock/baja_stock.php">Bajo de Stock</a></li>
           <li ><a href="../Baja_producto/baja_producto.php">Dar de baja Producto</a></li>
-          <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+          <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
         </ul>
       </li>
       <? }

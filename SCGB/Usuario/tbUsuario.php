@@ -2,7 +2,7 @@
 include '../Conexion.php';
 $cn = new Conexion();
 $cn->Conectar();
-$res = $cn->Consulta("SELECT u.U_LOGIN,u.U_NOMBRE,u.U_APELLIDO,u.U_TELEFONO,u.U_EMAIL,p.PROVEEDOR,p.PRODUCTO,p.PERSONAL,p.OBRA,P.BODEGA,P.INFORMEYGRAFICO,P.ADMINISTRACION FROM usuario u, permiso p WHERE u.CODIGOPERMISO=p.CODIGOPERMISO and u.u_ESTADO=1");
+$res = $cn->Consulta("SELECT u.U_LOGIN,u.U_NOMBRE,u.U_APELLIDO,u.U_TELEFONO,u.U_EMAIL,p.PROVEEDOR,p.PRODUCTO,p.PERSONAL,p.OBRA,p.BODEGA,p.INFORMEYGRAFICO,p.ADMINISTRACION FROM usuario u, permiso p WHERE u.CODIGOPERMISO=p.CODIGOPERMISO and u.u_ESTADO=1");
 
 ?>
  <!--ACA VA EL ESTILO DE LA  TABLA<link rel="stylesheet" href="../Templates/css/layout.css" type="text/css" media="screen" /> --> 

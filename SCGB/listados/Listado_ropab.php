@@ -1,4 +1,4 @@
-    <? session_start();
+<?php  session_start();
 	$CODIGO= $_SESSION["PERMISO"];
 include ("../include/conectar.php");
 $x=$_POST['FECHA'];
@@ -19,7 +19,7 @@ $y=$_POST['FECHA2'];
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
    <meta content="" name="description" />
    <meta content="" name="author" />
-   <!-- BEGIN GLOBAL MANDATORY STYLES -->
+   
    <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
    <!--IMPORTANT!: add media="screen" to bootstrap-responsive css for print mode-->
    <link href="../assets/plugins/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen"/>
@@ -180,7 +180,7 @@ $y=$_POST['FECHA2'];
               <li ><a href="../Ficha_Trabajador/prestamo.php">Ficha Trabajador</a></li>
               <li ><a href="../Bajo_stock/baja_stock.php">Bajo de Stock</a></li>
               <li ><a href="../Baja_producto/baja_producto.php">Dar de baja Producto</a></li>
-              <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+              <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
             </ul>
           </li>
           <? }

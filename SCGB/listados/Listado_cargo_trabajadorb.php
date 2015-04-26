@@ -18,7 +18,7 @@ $CODIGO= $_SESSION["PERMISO"];
    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
    <meta content="" name="description" />
    <meta content="" name="author" />
-   <!-- BEGIN GLOBAL MANDATORY STYLES -->
+   
    
    <!-- END PAGE LEVEL STYLES -->
 </head>

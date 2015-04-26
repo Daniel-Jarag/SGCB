@@ -1,7 +1,5 @@
-<? session_start();
+<?php session_start();
 include ("../include/conectar.php");	
-?>
-<?php
 include '../Conexion.php';
 $cn = new Conexion();
 $cn2 = new Conexion();
@@ -14,7 +12,7 @@ $res = $cn->Consulta("SELECT p.CODIGOPRODUCTO, p.P_NOMBRE,p.P_MARCA, p.P_MODELO,
  where ip.CODIGOPRODUCTO = p.CODIGOPRODUCTO and ip.NUMEROFACTURA=$id");
 
 $cn2->Conectar();
-$res2 = $cn2->Consulta("SELECT RUT,PD_NOMBRE FROM PROVEEDOR WHERE PD_ESTADO=1");
+$res2 = $cn2->Consulta("SELECT RUT,PD_NOMBRE FROM proveedor WHERE PD_ESTADO=1");
 ?> 
  
 <!DOCTYPE html>
@@ -171,7 +169,7 @@ $res2 = $cn2->Consulta("SELECT RUT,PD_NOMBRE FROM PROVEEDOR WHERE PD_ESTADO=1");
                  <li ><a href="../Prestamo/prestamo.php">Prestamo</a></li>
 				  <li ><a href="../Devolucion/devolucion.php">Devolucion</a></li>
 				 <li ><a href="#">Dar de baja Producto</a></li>
-                 <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+                 <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
 				 <li ><a href="../graficos/menu_graficoBodega.php">Grafico</a></li>
                  <li ><a href="../listados/menu_listadobodega.php">Informe</a></li>
                </ul>
@@ -210,17 +208,7 @@ $res2 = $cn2->Consulta("SELECT RUT,PD_NOMBRE FROM PROVEEDOR WHERE PD_ESTADO=1");
       </div>
       
       <div id="body">
-         <!-- ???????????????????????????????????????????????????-->
-        <!-- <div id="widget-config" class="modal hide">
-            <div class="modal-header">
-               
-               <h3>widget Settings</h3>
-            </div>
-            <div class="modal-body">
-               <p>Here will be a configuration form</p>
-            </div>
-         </div>-->
-         <!--???????????????????????????????????????????????????-->
+        
          <div class="container-fluid">
             <div class="row-fluid">
                <div class="span12">
@@ -267,8 +255,8 @@ $res2 = $cn2->Consulta("SELECT RUT,PD_NOMBRE FROM PROVEEDOR WHERE PD_ESTADO=1");
                         <div class="controls">
                           <select   name="PROVEEDOR" id="PROVEEDOR" class="span4  m-wrap tooltips" >
                             <?php while($row2 = $cn2->getRespuesta($res2)){ ?>
-                            <option value="<? echo $row2['RUT']; ?>" ><?php echo $row2['PD_NOMBRE']; ?></option>
-                            <? } ?>
+                            <option value="<?php  echo $row2['RUT']; ?>" ><?php echo $row2['PD_NOMBRE']; ?></option>
+                            <?php  } ?>
                           </select>
                          </div>
                         </div>

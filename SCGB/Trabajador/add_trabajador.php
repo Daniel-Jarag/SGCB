@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 include ("../include/conectar.php");
 $CODIGO= $_SESSION["PERMISO"];
 ?> 
@@ -6,7 +6,7 @@ $CODIGO= $_SESSION["PERMISO"];
 include '../Conexion.php';
 $cn = new Conexion();
 $cn->Conectar();
-$res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1");
+$res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  cargo where C_ESTADO=1");
 
 ?>  
 <!DOCTYPE html>
@@ -43,7 +43,7 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
       <!-- END LOGO -->
       <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="arrow"></span></a>
       <div class="top-nav">
-        <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+        <?php $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rs=mysql_query($sql,$conexion);	
 	while ($row=mysql_fetch_array($rs)){
@@ -59,7 +59,7 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
                   <?=$row["NUMERO"]; }?>
                   nuevas  notificaciones</p>
               </li>
-              <?
+              <?php
   
 	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
@@ -72,7 +72,7 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
                 quedan <span class="small italic">
                   <?=$row["S_CANTIDAD"];?>
                 </span> en Bodega. </a></li>
-              <?
+              <?php
 						}?>
               <li> <a href="#">Ver todas las notificaciones</a></li>
             </ul>
@@ -101,7 +101,7 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
 </div>
    <div id="container" class="row-fluid">
      <div id="sidebar" class="nav-collapse collapse">
-       <?
+       <?php
   	
 	$sql3 = "SELECT PROVEEDOR,PRODUCTO,PERSONAL,OBRA,BODEGA,INFORMEYGRAFICO,ADMINISTRACION from permiso WHERE CODIGOPERMISO= $CODIGO ";
 	conectar();
@@ -114,7 +114,7 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
        <ul>
          <li class=""> <a href="../inicio.php"> <i class="icon-home"></i> <span class="title ">Inicio</span> <span class="arrow "></span></a></li>
          <li class=""> <a href="../Calendario/calendario.php"> <i class="icon-calendar"></i> <span class="title">Calendario</span> <span class="arrow "></span></a></li>
-         <? if($row4["PROVEEDOR"]==1){
+         <?php if($row4["PROVEEDOR"]==1){
 		?>
          <li class="has-sub "> <a href="javascript:;"> <i class="icon-user "></i> <span class="title" >Proveedor</span> <span class="arrow "></span></a>
            <ul class="sub">
@@ -122,7 +122,7 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
              <li ><a href="../Proveedor/mod_proveedor.php">Buscar</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
 		if($row4["PRODUCTO"]==1){
 		?>
@@ -134,7 +134,7 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
              <li ><a href="../Vehiculo/mod_vehiculo.php">Vehiculo</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
 		if($row4["PERSONAL"]==1){
 		?>
@@ -147,7 +147,7 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
              <li ><a href="../Trabajador/termino_contrato.php">Termino Contrato</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
 		 if($row4["OBRA"]==1){
 		?>
@@ -158,7 +158,7 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
              <li ><a href="../Obra/cerrar_obra.php">Cerrar Obra</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
 	      if($row4["BODEGA"]==1){
 		?>
@@ -170,10 +170,10 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
              <li ><a href="../Ficha_Trabajador/prestamo.php">Ficha Trabajador</a></li>
              <li ><a href="../Bajo_stock/baja_stock.php">Bajo de Stock</a></li>
              <li ><a href="../Baja_producto/baja_producto.php">Dar de baja Producto</a></li>
-             <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+             <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
 	      if($row4["INFORMEYGRAFICO"]==1){
 		?>
@@ -183,7 +183,7 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
              <li ><a href="../listados/menu_listados.php">Informes</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
  if($row4["ADMINISTRACION"]==1){
 		?>
@@ -196,7 +196,7 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
              <li ><a href="../RespaldoBD/GenerarBD.php">Respalda base de datos</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	}
 		 ?>
          <li class=""> <a href="../logout.php"> <i class="icon-user"></i> <span class="title">Cerrar seccion</span></a></li>
@@ -246,8 +246,8 @@ $res = $cn->Consulta("SELECT CODIGOCARGO,C_NOMBRE FROM  CARGO where C_ESTADO=1")
 		                          <p>
 		                            <select name="CODIGO" id="CODIGO" class="span6" disabled="disabled" >
 		                              <?php while($row = $cn->getRespuesta($res)){ ?>
-		                              <option value="<? echo $row['CODIGOCARGO']; ?>" ><?php echo $row['C_NOMBRE']; ?></option>
-		                              <?
+		                              <option value="<?php echo $row['CODIGOCARGO']; ?>" ><?php echo $row['C_NOMBRE']; ?></option>
+		                              <?php
                                     }
  
                                    ?>                         

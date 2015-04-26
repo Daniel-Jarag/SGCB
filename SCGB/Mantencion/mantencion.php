@@ -163,7 +163,7 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../Ficha_Trabajador/prestamo.php">Ficha Trabajador</a></li>
           <li ><a href="../Bajo_stock/baja_stock.php">Bajo de Stock</a></li>
           <li ><a href="../Baja_producto/baja_producto.php">Dar de baja Producto</a></li>
-          <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+          <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
         </ul>
       </li>
       <? }
@@ -200,7 +200,7 @@ $CODIGO= $_SESSION["PERMISO"];
          <div class="container-fluid">
             <div class="row-fluid">
                <div class="span12">
-                  <h3 class="page-title">Ropa</h3>
+                  <h3 class="page-title">Mantención</h3>
                   <ul class="breadcrumb">
                      <li>
                         <i class="icon-home"></i>
@@ -208,10 +208,10 @@ $CODIGO= $_SESSION["PERMISO"];
                         <i class="icon-angle-right"></i>
                      </li>
                      <li>
-                        <a href="../Producto/Productos.php">Productos</a>
+                        <a href="../Producto/Productos.php">Matención</a>
                         <i class="icon-angle-right"></i>
                      </li>
-                     <li><a href="mod_ropa.php">Ropa</a></li>
+                     <li></li>
                   </ul>
 
                </div>
@@ -221,7 +221,7 @@ $CODIGO= $_SESSION["PERMISO"];
                   <div class="widget box green">
                      <div class="widget-title">
                         <div class="widget-title">
-                        <h4><i class="icon-globe"></i>Tabla de Ropa</h4>
+                        <h4><i class="icon-globe"></i>Tabla de mantención</h4>
                      </div>
                      </div>
                      <div class="widget-body form">

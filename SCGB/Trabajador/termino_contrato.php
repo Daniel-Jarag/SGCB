@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 include ("../include/conectar.php");
 $CODIGO= $_SESSION["PERMISO"];
 ?> 
@@ -37,7 +37,7 @@ $CODIGO= $_SESSION["PERMISO"];
       <!-- END LOGO -->
       <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="arrow"></span></a>
       <div class="top-nav">
-        <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+        <?php $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rs=mysql_query($sql,$conexion);	
 	while ($row=mysql_fetch_array($rs)){
@@ -53,7 +53,7 @@ $CODIGO= $_SESSION["PERMISO"];
                   <?=$row["NUMERO"]; }?>
                   nuevas  notificaciones</p>
               </li>
-              <?
+              <?php
   
 	$sql1 = "SELECT p.P_NOMBRE, s.S_CANTIDAD FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
@@ -66,7 +66,7 @@ $CODIGO= $_SESSION["PERMISO"];
                 quedan <span class="small italic">
                   <?=$row["S_CANTIDAD"];?>
                 </span> en Bodega. </a></li>
-              <?
+              <?php
 						}?>
               <li> <a href="#">Ver todas las notificaciones</a></li>
             </ul>
@@ -94,7 +94,7 @@ $CODIGO= $_SESSION["PERMISO"];
 </div>
 <div id="container" class="row-fluid">
   <div id="sidebar" class="nav-collapse collapse">
-       <?
+       <?php
   	
 	$sql3 = "SELECT PROVEEDOR,PRODUCTO,PERSONAL,OBRA,BODEGA,INFORMEYGRAFICO,ADMINISTRACION from permiso WHERE CODIGOPERMISO= $CODIGO ";
 	conectar();
@@ -107,7 +107,7 @@ $CODIGO= $_SESSION["PERMISO"];
        <ul>
          <li class=""> <a href="../inicio.php"> <i class="icon-home"></i> <span class="title ">Inicio</span> <span class="arrow "></span></a></li>
          <li class=""> <a href="../Calendario/calendario.php"> <i class="icon-calendar"></i> <span class="title">Calendario</span> <span class="arrow "></span></a></li>
-         <? if($row4["PROVEEDOR"]==1){
+         <?php if($row4["PROVEEDOR"]==1){
 		?>
          <li class="has-sub "> <a href="javascript:;"> <i class="icon-user "></i> <span class="title" >Proveedor</span> <span class="arrow "></span></a>
            <ul class="sub">
@@ -115,7 +115,7 @@ $CODIGO= $_SESSION["PERMISO"];
              <li ><a href="../Proveedor/mod_proveedor.php">Buscar</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
 		if($row4["PRODUCTO"]==1){
 		?>
@@ -127,7 +127,7 @@ $CODIGO= $_SESSION["PERMISO"];
              <li ><a href="../Vehiculo/mod_vehiculo.php">Vehiculo</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
 		if($row4["PERSONAL"]==1){
 		?>
@@ -140,7 +140,7 @@ $CODIGO= $_SESSION["PERMISO"];
              <li ><a href="../Trabajador/termino_contrato.php">Termino Contrato</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
 		 if($row4["OBRA"]==1){
 		?>
@@ -151,7 +151,7 @@ $CODIGO= $_SESSION["PERMISO"];
              <li ><a href="../Obra/cerrar_obra.php">Cerrar Obra</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
 	      if($row4["BODEGA"]==1){
 		?>
@@ -166,7 +166,7 @@ $CODIGO= $_SESSION["PERMISO"];
              <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
 	      if($row4["INFORMEYGRAFICO"]==1){
 		?>
@@ -176,7 +176,7 @@ $CODIGO= $_SESSION["PERMISO"];
              <li ><a href="../listados/menu_listados.php">Informes</a></li>
            </ul>
          </li>
-         <? }
+         <?php }
 	
  if($row4["ADMINISTRACION"]==1){
 		?>

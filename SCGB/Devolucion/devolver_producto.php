@@ -1,4 +1,4 @@
-<? session_start();
+<?php  session_start();
 include ("../include/conectar.php");	
 ?>
 <?php
@@ -242,7 +242,7 @@ WHERE p.CODIGOPRODUCTO=v.CODIGOPRODUCTO AND p.CODIGOPRODUCTO=pu.CODIGOPRODUCTO A
                  <li ><a href="../Prestamo/prestamo.php">Prestamo</a></li>
 				  <li class="active"><a href="../Devolucion/devolucion.php">Devolucion</a></li>
 				 <li ><a href="#">Dar de baja Producto</a></li>
-                 <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+                 <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
 				 <li ><a href="../graficos/menu_graficoBodega.php">Grafico</a></li>
                  <li ><a href="../listados/menu_listadobodega.php">Informe</a></li>
                </ul>

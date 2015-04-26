@@ -1,4 +1,4 @@
-    <? session_start();
+<?php  session_start();
 include ("../include/conectar.php");
 $CODIGO= $_SESSION["PERMISO"];
 
@@ -17,7 +17,7 @@ $CODIGO= $_SESSION["PERMISO"];
    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
    <meta content="" name="description" />
    <meta content="" name="author" />
-   <!-- BEGIN GLOBAL MANDATORY STYLES -->
+   
    <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
    <!--IMPORTANT!: add media="screen" to bootstrap-responsive css for print mode-->
    <link href="../assets/plugins/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen"/>
@@ -176,7 +176,7 @@ $CODIGO= $_SESSION["PERMISO"];
               <li ><a href="../Ficha_Trabajador/prestamo.php">Ficha Trabajador</a></li>
               <li ><a href="../Bajo_stock/baja_stock.php">Bajo de Stock</a></li>
               <li ><a href="../Baja_producto/baja_producto.php">Dar de baja Producto</a></li>
-              <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+              <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
             </ul>
           </li>
           <? }

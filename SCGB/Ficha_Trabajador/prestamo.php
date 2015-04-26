@@ -1,4 +1,4 @@
-<? session_start();
+<?php  session_start();
 include ("../include/conectar.php");
 $CODIGO= $_SESSION["PERMISO"];	
 ?>
@@ -110,7 +110,7 @@ while($row3 = $cn3->getRespuesta($res3)){
     </div>
   </div>
 </div>
-<div id="container" class="row-fluid"><a href="../graficos">graficos</a><a href="../graficosprueba">graficosprueba</a><a href="../Herramienta">Herramienta</a><a href="../Historico_Trabajador">Historico_Trabajador</a>
+<div id="container" class="row-fluid">
   <div id="sidebar" class="nav-collapse collapse">
     <?
   	
@@ -181,7 +181,7 @@ while($row3 = $cn3->getRespuesta($res3)){
           <li ><a href="../Ficha_Trabajador/prestamo.php">Ficha Trabajador</a></li>
           <li ><a href="../Bajo_stock/baja_stock.php">Bajo de Stock</a></li>
           <li ><a href="../Baja_producto/baja_producto.php">Dar de baja Producto</a></li>
-          <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+          <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
         </ul>
       </li>
       <? }

@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 include ("../include/conectar.php");
 $CODIGO= $_SESSION["PERMISO"];
 
@@ -37,7 +37,7 @@ $CODIGO= $_SESSION["PERMISO"];
       <!-- END LOGO -->
       <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="arrow"></span></a>
       <div class="top-nav">
-        <? $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
+        <?php $sql = "SELECT COUNT( p.P_NOMBRE )as NUMERO FROM producto p, stock s WHERE p.CODIGOPRODUCTO = s.CODIGOPRODUCTO AND p.P_ESTADO =1 AND s.S_CANTIDAD <= s.S_CANTIDADMINIMA ";
 	conectar();
 	$rs=mysql_query($sql,$conexion);	
 	while ($row=mysql_fetch_array($rs)){
@@ -107,7 +107,7 @@ $CODIGO= $_SESSION["PERMISO"];
     <ul>
       <li class=""> <a href="../inicio.php"> <i class="icon-home"></i> <span class="title ">Inicio</span> <span class="arrow "></span></a></li>
       <li class=""> <a href="../Calendario/calendario.php"> <i class="icon-calendar"></i> <span class="title">Calendario</span> <span class="arrow "></span></a></li>
-      <? if($row4["PROVEEDOR"]==1){
+      <?php if($row4["PROVEEDOR"]==1){
 		?>
       <li class="has-sub "> <a href="javascript:;"> <i class="icon-user "></i> <span class="title" >Proveedor</span> <span class="arrow "></span></a>
         <ul class="sub">
@@ -115,7 +115,7 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../Proveedor/mod_proveedor.php">Buscar</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	
 		if($row4["PRODUCTO"]==1){
 		?>
@@ -127,7 +127,7 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../Vehiculo/mod_vehiculo.php">Vehiculo</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	
 		if($row4["PERSONAL"]==1){
 		?>
@@ -140,7 +140,7 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../Trabajador/termino_contrato.php">Termino Contrato</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	
 		 if($row4["OBRA"]==1){
 		?>
@@ -151,7 +151,7 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../Obra/cerrar_obra.php">Cerrar Obra</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	
 	      if($row4["BODEGA"]==1){
 		?>
@@ -163,10 +163,10 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../Ficha_Trabajador/prestamo.php">Ficha Trabajador</a></li>
           <li ><a href="../Bajo_stock/baja_stock.php">Bajo de Stock</a></li>
           <li ><a href="../Baja_producto/baja_producto.php">Dar de baja Producto</a></li>
-          <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+          <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	
 	      if($row4["INFORMEYGRAFICO"]==1){
 		?>
@@ -176,7 +176,7 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../listados/menu_listados.php">Informes</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	
  if($row4["ADMINISTRACION"]==1){
 		?>
@@ -189,7 +189,7 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../RespaldoBD/GenerarBD.php">Respalda base de datos</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	}
 		 ?>
       <li class=""> <a href="../logout.php"> <i class="icon-user"></i> <span class="title">Cerrar seccion</span></a></li>
@@ -244,7 +244,7 @@ $CODIGO= $_SESSION["PERMISO"];
                            <div class="control-group">
                               <label class="control-label">Codigo Vehiculo <span class="required">*</span></label>
                               <div class="controls">
-							  <? $sql="Select count(CODIGOPRODUCTO)+1 AS ID from vehiculo";
+							  <?php $sql="Select count(CODIGOPRODUCTO)+1 AS ID from vehiculo";
 
 conectar();
 $rs=mysql_query($sql,$conexion);
@@ -321,9 +321,9 @@ $rs=mysql_query($sql,$conexion);
                            <div class="control-group">
                     <label class="control-label">Cantidad Minima<span class="required">*</span></label>
                      <div class="controls"> <select class="span2 " name="CANTIDADMINIMA"id ="CANTIDADMINIMA">
-                                     <? for ($i = 0; $i <= 10; $i++) { ?>       
-                                    <option value="<? echo $i ?>"><? echo $i ?></option>
-                                     <? } ?>
+                                     <?php for ($i = 0; $i <= 10; $i++) { ?>       
+                                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                     <?php } ?>
   
                                  </select>
                             </div>

@@ -1,4 +1,4 @@
-<? session_start();
+<?php  session_start();
 include ("../include/conectar.php");
 $CODIGO= $_SESSION["PERMISO"];		
 ?>
@@ -204,7 +204,7 @@ SELECT p.CODIGOPRODUCTO,pu.CODIGOUNITARIO,ep.EP_FECHA,ep.EP_ESTADOPRODUCTO,ep.EP
           <li ><a href="../Ficha_Trabajador/prestamo.php">Ficha Trabajador</a></li>
           <li ><a href="../Bajo_stock/baja_stock.php">Bajo de Stock</a></li>
           <li ><a href="../Baja_producto/baja_producto.php">Dar de baja Producto</a></li>
-          <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+          <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
         </ul>
       </li>
       <? }

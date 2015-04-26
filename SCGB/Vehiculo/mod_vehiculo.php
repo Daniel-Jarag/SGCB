@@ -140,7 +140,7 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../Trabajador/termino_contrato.php">Termino Contrato</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	
 		 if($row4["OBRA"]==1){
 		?>
@@ -151,7 +151,7 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../Obra/cerrar_obra.php">Cerrar Obra</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	
 	      if($row4["BODEGA"]==1){
 		?>
@@ -163,10 +163,10 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../Ficha_Trabajador/prestamo.php">Ficha Trabajador</a></li>
           <li ><a href="../Bajo_stock/baja_stock.php">Bajo de Stock</a></li>
           <li ><a href="../Baja_producto/baja_producto.php">Dar de baja Producto</a></li>
-          <li ><a href="../ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
+          <li ><a href="../Ingreso_producto/ingreso_producto.php">Ingreso de Producto</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	
 	      if($row4["INFORMEYGRAFICO"]==1){
 		?>
@@ -176,7 +176,7 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../listados/menu_listados.php">Informes</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	
  if($row4["ADMINISTRACION"]==1){
 		?>
@@ -189,7 +189,7 @@ $CODIGO= $_SESSION["PERMISO"];
           <li ><a href="../RespaldoBD/GenerarBD.php">Respalda base de datos</a></li>
         </ul>
       </li>
-      <? }
+      <?php }
 	}
 		 ?>
       <li class=""> <a href="../logout.php"> <i class="icon-user"></i> <span class="title">Cerrar seccion</span></a></li>
@@ -332,9 +332,9 @@ $CODIGO= $_SESSION["PERMISO"];
                            <div class="control-group">
                            <label class="control-label">Cantidad Minima<span class="required">*</span></label>
                            <div class="controls"> <select class="span2 " name="CANTIDADMINIMA"id ="CANTIDADMINIMA">
-                                     <? for ($i = 0; $i <= 10; $i++) { ?>       
-                                    <option value="<? echo $i ?>"><? echo $i ?></option>
-                                     <? } ?>
+                                     <?php for ($i = 0; $i <= 10; $i++) { ?>       
+                                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                     <?php } ?>
   
                                  </select>
                             </div>

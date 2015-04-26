@@ -9,11 +9,11 @@ $start = $time;
 ini_set('memory_limit','4000M');
 
 
-$host = "localhost";
-$user = "root";
-$pass = "";
+$host = "127.0.0.1";
+$user = "tsigroup_proyect";
+$pass = "tuKKrWy49k4T";
 
-$db = "proyecto";
+$db = "tsigroup_proyecto";
 
 $link = mysql_connect($host,$user,$pass);
 $result = mysql_query("show databases like 'tag%'");  // we only want tagdb
@@ -23,10 +23,10 @@ while($row = mysql_fetch_row($result))
     $dbs[] = $row[0];
 }
 
-backup_tables('localhost','root','','proyecto');
+//backup_tables('127.0.0.1','tsigroup_proyect','tuKKrWy49k4T','tsigroup_proyecto');
 
 
-//backup_tables($host,$username,$password,$db);
+backup_tables($host,$username,$password,$db);
 
 /* backup the db OR just a table */
 function backup_tables($host,$user,$pass,$name,$tables = '*')
