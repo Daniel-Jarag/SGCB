@@ -226,21 +226,42 @@ $CODIGO= $_SESSION["PERMISO"];
                      <div class="widget-body form">
                         <!-- Iniio de Botones-->
                            <div class="row-fluid">
-                              <a href="producto_proveedor.php" class="icon-btn span3">
+                             
+                             <a href="gra-1.php" class="icon-btn span3">
+                                 <i class="icon-heart"></i>
+                                 <div>Producto en bodega</div>
+                              </a>
+                               <a href="gra-2.php" class="icon-btn span3">
                                  <i class="icon-cogs"></i>
-                                 <div>Producto por Proveedor </div>
+                                 <div>Herraminetas en bodega </div>
                                  <!--<span class="badge badge-important">2</span>-->
                               </a>
-                              <a href="graherramienta_ins.php" class="icon-btn span3">
-                                 <i class="icon-heart"></i>
-                                 <div>Materiales en bodega</div>
+                              
+                              <a href="gra-6.php" class="icon-btn span3">
+                                 <i class="icon-group"></i>
+                                 <div>Insumo en bodega</div>
                               </a>
-                              <a href="PERSONAL_obra.php" class="icon-btn span3">
+                               <a href="gra-7.php" class="icon-btn span3">
+                                 <i class="icon-heart"></i>
+                                 <div>Ropa en bodega</div>
+                              </a>
+                           </div>
+                          <div class="row-fluid">
+                              <a href="gra-5.php" class="icon-btn span3">
+                                 <i class="icon-cogs"></i>
+                                 <div>Producto por Proveedores </div>
+                                 <!--<span class="badge badge-important">2</span>-->
+                              </a>
+                              <a href="gra-3.php" class="icon-btn span3">
+                                 <i class="icon-heart"></i>
+                                 <div>Producto por obras</div>
+                              </a>
+                              <a href="gra-7.php" class="icon-btn span3">
                                  <i class="icon-group"></i>
                                  <div>Producto por obra</div>
                               </a>
+                             
                            </div>
-                          
                     </div>
                  </div>
                         <!-- Fin de los Botones-->

@@ -245,7 +245,7 @@ $CODIGO= $_SESSION["PERMISO"];
 				   
                   <div class="widget box green">
                      <div class="widget-title hidden-print">
-                        <h4><i class="icon-reorder hidden-print"></i>Cantidad de herramienta en bodega </h4>
+                        <h4><i class="icon-reorder hidden-print"></i>Cantidad de insumo en bodega </h4>
                         <div class="tools">
                            <a href="javascript:;" class="collapse"></a>
                            <a href="#portlet-config" data-toggle="modal" class="config"></a>
@@ -258,7 +258,7 @@ $CODIGO= $_SESSION["PERMISO"];
 					
                
                         <!-- BEGIN FORM-->
-                       <h3>Informe herramienta </h3>
+                       <h3>Informe Insumo </h3>
                         <p>
                           <!-- END FORM-->
                         </p>
@@ -332,7 +332,7 @@ $cn = new Conexion();
 $cn->Conectar();
 $return_arr = array();
 
-$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,s.S_CANTIDAD as CANTIDAD FROM  herramienta h,producto p,stock s 
+$res = $cn->Consulta("SELECT p.CODIGOPRODUCTO,p.P_NOMBRE,s.S_CANTIDAD as CANTIDAD FROM  insumo h,producto p,stock s 
  WHERE p.CODIGOPRODUCTO=h.CODIGOPRODUCTO and p.CODIGOPRODUCTO=s.CODIGOPRODUCTO and p.P_ESTADO=1
 ");
 
@@ -384,7 +384,7 @@ tooltip: {
             
         },
 		seriesTemplate: {
-        nameField: "P_IDENTIFICADOR"
+        nameField: "P_NOMBRE.P_IDENTIFICADOR "
     },
     
       
